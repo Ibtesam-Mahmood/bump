@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bumb/transaction_list.dart';
 
 void main() => runApp(BumpApp());
 
@@ -25,8 +26,23 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Bump"),
+        centerTitle: true,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.attach_money), title: Text("Transactions")),
+          BottomNavigationBarItem(icon: Icon(Icons.people), title: Text("Contacts")),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: TransactionList(),
     );
   }
 }
